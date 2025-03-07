@@ -9,6 +9,8 @@ public class Feature1 {
 
     @Given("I am a registered customer named {string}")
     public void i_am_a_registered_customer_named(String string) {
+
+
         // Write code here that turns the phrase above into concrete actions
     }
 
