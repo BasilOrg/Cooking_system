@@ -3,12 +3,24 @@ package BasilSystem;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.example.Customer;
+
+import static org.junit.Assert.*;
 
 public class Feature1 {
+    private String currentCustomer;
+    private boolean isPreferencesSubmitted = false;
 
 
     @Given("I am a registered customer named {string}")
-    public void i_am_a_registered_customer_named(String string) {
+    public void i_am_a_registered_customer_named(String name) {
+
+        System.out.println("Enter the Customer Name:");
+        Customer.testName(name);
+        Customer customer = new Customer();
+        Customer.name=name;
+        currentCustomer=name;
+
 
 
 
@@ -17,16 +29,26 @@ public class Feature1 {
 
     @When("I navigate to the {string} section")
     public void i_navigate_to_the_section(String string) {
+
+        assertNotNull("Customer not registered", currentCustomer);
+
         // Write code here that turns the phrase above into concrete actions
     }
 
     @When("I enter {string} as my dietary preference")
-    public void i_enter_as_my_dietary_preference(String string) {
+    public void i_enter_as_my_dietary_preference(String dietaryPreference) {
+        boolean flag=false;
+
+       Customer.dietaryPreference=dietaryPreference;
+       if (dietaryPreference.isEmpty()) assertFalse(false);
+       else assertTrue(true);
+
         // Write code here that turns the phrase above into concrete actions
     }
 
     @When("I enter {string} as an allergy")
-    public void i_enter_as_an_allergy(String string) {
+    public void i_enter_as_an_allergy(String allergy) {
+      Customer.allergy=allergy;
         // Write code here that turns the phrase above into concrete actions
     }
 
