@@ -15,13 +15,17 @@ public class Feature1 {
 
     ArrayList<Customer>ac=new ArrayList<>();
 
+    //Scenario: empty Information
+
     @Then("the field {string} should be error")
     public void theFieldShouldBeError(String string) {
 
         System.out.println("Please enter the information");
-        assertEquals(false,false);
+        assertFalse(false);
         // Write code here that turns the phrase above into concrete actions
     }
+
+    //Scenario: successful information
 
     @When("user clik on insert order and flag is {string}")
     public void userClikOnInsertOrderAndFlagIs(String string) {
@@ -110,6 +114,7 @@ public class Feature1 {
 
         // Write code here that turns the phrase above into concrete actions
     }
+//Scenario: Chef retrieves a customer's dietary preferences
 
     @When("I retrieve the preferences for {string}")
     public void iRetrieveThePreferencesFor(String string) {
