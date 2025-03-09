@@ -14,38 +14,47 @@ public class Customer {
 
     public void setName(String name){
 
-        this.name=name;
+                  this.name=name;
     }
 
     public String getName(){
 
-        return name;
+                       return name;
     }
 
 
 
-    public  void setDietaryPreference(String dietaryPreference){
 
-        this.dietaryPreference=dietaryPreference;
+
+
+
+      public  void setDietaryPreference(String dietaryPreference){
+
+                              this.dietaryPreference=dietaryPreference;
     }
 
     public  String getDietaryPreference(){
 
-        return dietaryPreference;
+                   return dietaryPreference;
     }
 
 
 
 
-    public  void  setAllergy(String allergy){
 
-        this.allergy=allergy;
-    }
 
-    public String getAllergy(){
 
-        return allergy;
-    }
+
+
+          public  void  setAllergy(String allergy){
+
+                             this.allergy=allergy;
+          }
+
+          public String getAllergy(){
+
+              return allergy;
+        }
 
 
 
