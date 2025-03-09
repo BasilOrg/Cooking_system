@@ -27,7 +27,7 @@ public class Feature1 {
 
     //Scenario: successful information
 
-    @When("user clik on insert order and flag is {string}")
+    @When("user click on insert order and flag is {string}")
     public void userClikOnInsertOrderAndFlagIs(String string) {
         // Write code here that turns the phrase above into concrete actions
     }
