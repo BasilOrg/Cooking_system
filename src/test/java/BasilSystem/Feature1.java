@@ -94,7 +94,8 @@ public class Feature1 {
 
             flag= TestInput.nameTest(string);
             if(flag) assertTrue(true);
-            else System.out.println("Name is Invalid OR Name must be A a string ");
+            else {   assertFalse(false);
+                System.out.println("Name is Invalid OR Name must be A a string ");}
 
 
 
@@ -102,14 +103,17 @@ public class Feature1 {
 
             flag= TestInput.dietaryPresencesTest(string);
             if(flag) assertTrue(true);
-            else  System.out.println("dietaryPresences must be a String  OR dietaryPresences is Invalid");
+            else {
+                assertFalse(false); System.out.println("dietaryPresences must be a String  OR dietaryPresences is Invalid");
+            }
 
 
 
 
             flag= TestInput.allergiesTest(string);
             if(flag) assertTrue(true);
-            else ;System.out.println("Allergies must be a String  OR Allergies is Invalid   ");
+            else {   assertFalse(false);
+                System.out.println("Allergies must be a String  OR Allergies is Invalid   ");}
 
 
         // Write code here that turns the phrase above into concrete actions
