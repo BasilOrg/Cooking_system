@@ -37,6 +37,7 @@ public class Feature1 {
         boolean flag =false;
         if(string.equals("Name")){
 
+
             flag= TestInput.nameTest(string2);
             if(flag) assertTrue(true);
             else assertFalse(false);
@@ -72,6 +73,7 @@ public class Feature1 {
         customer.setAllergy(allergies);
 
         ac.add(customer);
+
     }
 
     @Then("I should receive a confirmation message that my information has been saved")
