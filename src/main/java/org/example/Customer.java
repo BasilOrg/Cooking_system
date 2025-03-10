@@ -1,11 +1,33 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Customer {
 
-    private  String dietaryPreference;
+    private static String dietaryPreference;
     private  String name;
-    private  String allergy;
+    private static String allergy;
 
+    static ArrayList<Customer> ac=new ArrayList<>();
+
+
+
+
+
+    public static void storeCustomer(Customer customer) {
+
+        ac.add(customer);
+    }
+
+    public static void searchCustomerName(String name) {
+        for(int i=0;i< ac.size();i++) {
+            Customer typ = new Customer();
+            typ = ac.get(i);
+            if(name.equals(typ.name)){
+                System.out.println(ac.get(i));
+            }
+        }
+    }
 
 
     @Override
@@ -41,7 +63,7 @@ public class Customer {
                               this.dietaryPreference=dietaryPreference;
     }
 
-    public  String getDietaryPreference(){
+    public static String getDietaryPreference(){
 
                    return dietaryPreference;
     }
@@ -59,7 +81,7 @@ public class Customer {
                              this.allergy=allergy;
           }
 
-          public String getAllergy(){
+          public static String getAllergy(){
 
               return allergy;
         }
