@@ -1,6 +1,5 @@
 package BasilSystem;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.Customer;
@@ -72,7 +71,7 @@ public class Feature1 {
         customer.setDietaryPreference(dietaryPresences);
         customer.setAllergy(allergies);
 
-        ac.add(customer);
+        Customer.storeCustomer(customer);
 
     }
 
@@ -118,17 +117,23 @@ public class Feature1 {
 //Scenario: Chef retrieves a customer's dietary preferences
 
     @When("I retrieve the preferences for {string}")
-    public void iRetrieveThePreferencesFor(String string) {
+    public void iRetrieveThePreferencesFor(String name) {
+        Customer.searchCustomerName(name);
+
         // Write code here that turns the phrase above into concrete actions
     }
 
     @Then("I should see {string} in dietary preferences")
-    public void iShouldSeeInDietaryPreferences(String string) {
+    public void iShouldSeeInDietaryPreferences(String dietaryPresences) {
+
+        Customer.getDietaryPreference();
+
         // Write code here that turns the phrase above into concrete actions
     }
 
     @Then("I should see {string} in allergies")
     public void iShouldSeeInAllergies(String string) {
+        Customer.getAllergy();
         // Write code here that turns the phrase above into concrete actions
     }
 
