@@ -83,7 +83,6 @@ public class Feature1 {
     }
 
 
-
     @Then("the user should see {string}")
     public void theUserShouldSee(String string) {
 
@@ -111,7 +110,6 @@ public class Feature1 {
             if(flag) assertTrue(true);
             else {   assertFalse(false);
                 System.out.println("Allergies must be a String  OR Allergies is Invalid   ");}
-
 
         // Write code here that turns the phrase above into concrete actions
     }

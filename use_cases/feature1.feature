@@ -25,7 +25,6 @@
     And I should receive a confirmation message that my information has been saved
 
 
-
     Scenario Outline: I errors with input
       When user click on insert order and flag is 'true'
       And he fill in 'Name' with '<Name>'
