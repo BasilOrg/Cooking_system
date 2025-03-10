@@ -7,6 +7,14 @@ public class Customer {
     private  String allergy;
 
 
+
+    @Override
+    public String toString() {
+
+        return ( "Customer Name:"+name+'\t'+"DietaryPreference:"+dietaryPreference+"\t"+"Allergy:"+allergy+"\n");
+    }
+
+
     public Customer() {
 
     }

@@ -43,6 +43,6 @@
 
 
     Scenario: Chef retrieves a customer's dietary preferences
-      When I retrieve the preferences for "Alice"
+      When I retrieve the preferences for "Basil"
       Then I should see "Vegan" in dietary preferences
       And  I should see "Peanuts" in allergies
