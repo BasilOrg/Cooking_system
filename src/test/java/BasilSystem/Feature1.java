@@ -82,10 +82,7 @@ public class Feature1 {
         // Write code here that turns the phrase above into concrete actions
     }
 
-    @When("user click on insert order and flag is {string}")
-    public void userClickOnInsertOrderAndFlagIs(String string) {
-        // Write code here that turns the phrase above into concrete actions
-    }
+
 
     @Then("the user should see {string}")
     public void theUserShouldSee(String string) {

@@ -18,8 +18,7 @@
 
   Scenario: successful information
 
-    When user clik on insert order and flag is 'true'
-    And he fill in 'Name' with 'Basil'
+    Then he fill in 'Name' with 'Basil'
     And he fill in 'dietaryPresences' with 'Vegetarian'
     And he fill in 'Allergies' with 'Peanuts'
     Then the system should store "Vegetarian" as a dietary preference and "Peanuts" for "Basil"
