@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.*;
 
-public class Feature1 {
+public class Feature1_1 {
 
     ArrayList<Customer>ac=new ArrayList<>();
 
