@@ -1,78 +1,102 @@
-Special Cook Project Management System – User 
-Stories 
-Overview 
-The Special Cook Project Management System is a software solution designed to streamline 
-the management of custom cooking projects, ensuring efficiency in meal planning, ingredient 
-sourcing, scheduling, and customer preferences. The system will be developed using 
-Behavior-Driven Development (BDD), TDD with Java, ensuring that business requirements are 
-well understood and tested before implementation. 
-Objectives 
-● Automate the planning and execution of special cooking requests. 
-● Manage customer preferences, dietary restrictions, and order customization. 
-● Maintain a database or Array lists of ingredients, suppliers, and cost tracking. 
-● Ensure seamless communication between chefs, suppliers, and customers. 
-1. Customer Profile Management 
-1.1 Store dietary preferences and allergies 
-● As a customer, I want to input my dietary preferences and allergies so that the system 
-can recommend appropriate meals and prevent unwanted ingredients. 
-● As a chef, I want to view customer dietary preferences so that I can customize meals 
-accordingly. 
-1.2 Track past orders and personalized meal plans 
-● As a customer, I want to view my past meal orders so that I can reorder meals I liked. 
-● As a chef, I want to access customers’ order history so that I can suggest personalized 
-meal plans. 
-● As a system administrator, I want to store and retrieve customer order history so that I 
-can analyze trends and improve service offerings. 
-2. Order and Menu Customization 
-2.1 Allow customers to create custom meal requests 
-● As a customer, I want to select ingredients and customize my meal so that I can order 
-meals according to my taste and dietary needs. 
-● As a system, I want to validate ingredient combinations so that customers do not select 
-incompatible or unavailable ingredients. 
-2.2 Suggest ingredient substitutions based on dietary restrictions 
-● As a customer, I want the system to suggest alternative ingredients if an ingredient is 
-unavailable or does not fit my dietary restrictions so that I can enjoy my meal without 
-compromising my health. 
-● As a chef, I want to receive an alert when an ingredient substitution is applied so that I 
-can approve or adjust the final recipe. 
-3. Scheduling and Task Management 
-3.1 Assign tasks to chefs and kitchen staff 
-● As a kitchen manager, I want to assign tasks to chefs based on their workload and 
-expertise so that I can ensure balanced workloads and efficiency. 
-● As a chef, I want to receive notifications about my assigned cooking tasks so that I can 
-prepare meals on time. 
-4. Inventory and Supplier Management 
-4.1 Track available ingredients and suggest restocking 
-● As a kitchen manager, I want to track ingredient stock levels in real time so that I can 
-prevent shortages and ensure continuous operations. 
-● As a system, I want to automatically suggest restocking when ingredients are low so that 
-kitchen managers can take action promptly. 
-4.2 Integrate with suppliers for real-time pricing and ordering 
-● As a kitchen manager, I want the system to fetch real-time ingredient prices from 
-suppliers so that I can make cost-effective purchasing decisions. 
-● As a system, I want to automatically generate purchase orders when stock levels are 
-critically low so that supplies are replenished without manual intervention. 
-5. Billing System 
-5.1 Generate invoices and track financial reports 
-● As a customer, I want to receive an invoice. 
-● As a system administrator, I want to generate financial reports so that I can analyze 
-revenue and track business performance. 
-6. Notifications and Alerts 
-6.1 Send reminders for upcoming orders and deliveries 
-● As a customer, I want to receive reminders for my upcoming meal deliveries so that I can 
-be prepared to receive them. 
-● As a chef, I want to get notified of scheduled cooking tasks so that I can prepare meals 
-on time. 
-6.2 Notify users of low-stock ingredients  
-● As a kitchen manager, I want to receive alerts when stock levels are low so that I can 
-reorder before running out of ingredients. 
-7. AI assistance 
-You can use any available LLM as a recipe recommendation assistant. You can use the 
-following prompt.  
-You are a recipe recommendation assistant. A user has the following preferences: - Dietary restrictions: Vegan. - Ingredients available: Tomatoes, basil, pasta. - Time available: 30 minutes. 
-Recommend the best recipe from the following database: 
-1. Spaghetti with Tomato Sauce (Ingredients: Tomatoes, pasta, basil, olive oil. Time: 25 minutes. 
-Vegan.) 
-2. Tomato Basil Soup (Ingredients: Tomatoes, basil, garlic. Time: 40 minutes. Vegan.) 
-3. Vegan Pesto Pasta (Ingredients: Basil, pasta, olive oil, garlic. Time: 20 minutes. Vegan.) 
-Explain your recommendation clearly. 
+# Special Cook Project Management System
+
+## Overview
+The **Special Cook Project Management System** is a software solution designed to streamline the management of custom cooking projects. It ensures efficiency in meal planning, ingredient sourcing, scheduling, and customer preferences. The system follows **Behavior-Driven Development (BDD)** and **Test-Driven Development (TDD) with Java**, ensuring that business requirements are well understood and tested before implementation.
+
+## Objectives
+- Automate the planning and execution of special cooking requests.
+- Manage customer preferences, dietary restrictions, and order customization.
+- Maintain a database or array lists of ingredients, suppliers, and cost tracking.
+- Ensure seamless communication between chefs, suppliers, and customers.
+
+## Features
+
+### 1. Customer Profile Management
+- **Store dietary preferences and allergies**
+  - Customers can input their dietary preferences and allergies to receive appropriate meal recommendations.
+  - Chefs can view customer preferences to customize meals accordingly.
+- **Track past orders and personalized meal plans**
+  - Customers can view past orders for easy reordering.
+  - Chefs can access order history to suggest personalized meal plans.
+  - Administrators can analyze order trends to improve services.
+
+### 2. Order and Menu Customization
+- **Custom meal requests**
+  - Customers can select ingredients and customize their meals based on dietary needs.
+  - The system validates ingredient combinations to prevent unavailable or incompatible selections.
+- **Ingredient substitution suggestions**
+  - The system suggests alternative ingredients if an ingredient is unavailable or does not meet dietary restrictions.
+  - Chefs receive alerts when substitutions are applied for final approval.
+
+### 3. Scheduling and Task Management
+- **Task assignments for chefs and kitchen staff**
+  - Kitchen managers can assign tasks based on workload and expertise.
+  - Chefs receive notifications about assigned cooking tasks to ensure timely preparation.
+
+### 4. Inventory and Supplier Management
+- **Ingredient tracking and restocking suggestions**
+  - The system monitors ingredient stock levels in real time to prevent shortages.
+  - It automatically suggests restocking when ingredient levels are low.
+- **Supplier integration for real-time pricing and ordering**
+  - Fetches real-time ingredient prices from suppliers for cost-effective purchasing.
+  - Automatically generates purchase orders when stock is critically low.
+
+### 5. Billing System
+- **Invoice generation and financial tracking**
+  - Customers receive invoices for their orders.
+  - Administrators generate financial reports to analyze revenue and business performance.
+
+### 6. Notifications and Alerts
+- **Reminders for upcoming orders and deliveries**
+  - Customers receive reminders for upcoming meal deliveries.
+  - Chefs get notifications for scheduled cooking tasks.
+- **Stock level alerts**
+  - Kitchen managers receive low-stock alerts to reorder ingredients before running out.
+
+### 7. AI Assistance
+- **Recipe Recommendation Assistant**
+  - The system can use AI models to recommend recipes based on dietary preferences and available ingredients.
+  - Example prompt:
+    > "You are a recipe recommendation assistant. A user has the following preferences:
+    > - Dietary restrictions: Vegan.
+    > - Ingredients available: Tomatoes, basil, pasta.
+    > - Time available: 30 minutes.
+    > Recommend the best recipe from the database and explain your choice."
+
+## Technologies Used
+- **Programming Language:** Java
+- **Development Approach:** Behavior-Driven Development (BDD), Test-Driven Development (TDD)
+- **Database Management:** Array lists or a structured database for ingredient tracking
+- **Integration:** Supplier APIs for real-time pricing and inventory management
+- **AI Models:** Used for recipe recommendations
+
+## Installation & Setup
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-repo/special-cook.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd special-cook
+   ```
+3. Install dependencies:
+   ```sh
+   mvn install  # If using Maven
+   ```
+4. Run the application:
+   ```sh
+   java -jar special-cook.jar
+   ```
+
+## Contribution Guidelines
+- Fork the repository and create a new branch for your feature.
+- Commit your changes with descriptive messages.
+- Open a pull request for review.
+- Ensure all tests pass before merging.
+
+## License
+This project is licensed under the **MIT License**.
+
+## Contact
+For any questions or support, reach out to barakatbasil79@gmail.com.
+
