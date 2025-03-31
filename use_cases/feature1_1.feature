@@ -32,7 +32,7 @@
       And he fill in 'Allergies' with '<Allergies>'
       Then the user should see '<message>'
       Examples:
-        | Name  | dietaryPresences | Allergies | message |
+        | Name  | dietaryPresences | Allergies | message                           |
         | Basil |    1             | Peanuts   | dietaryPresences must be a String |
         | Basil |    Vegan         | 1         | Allergies must be  a String       |
         | Tree  |   Vegan          | Peanut    | Name is Invalid                   |

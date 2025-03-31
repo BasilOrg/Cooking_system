@@ -20,7 +20,7 @@ public class Feature3 {
 
     @Given("the kitchen has chefs with different expertise levels")
     public void the_kitchen_has_chefs_with_different_expertise_levels() {
-        System.out.println("The kitchen has chefs with different expertise levels.");
+        System.out.println("\nThe kitchen has chefs with different expertise levels.");
         assertTrue(true);
 
     }
@@ -29,7 +29,7 @@ public class Feature3 {
     public void chef_specializes_in(String name, String specialization) {
         Chef chef = new Chef(name, specialization);
         chefRegistry.put(name, chef);
-        System.out.println(name + " specializes in " + specialization);
+        System.out.println(chef);
         assertTrue(true);
 
     }

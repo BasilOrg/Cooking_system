@@ -6,6 +6,15 @@ public class Chef {
     private final String specialization;
     private int taskCount = 0;
 
+
+    @Override
+    public String toString() {
+
+        return ( "Chef Name:"+name+'\t'+"specialization:"+specialization+"\n");
+    }
+
+
+
     public Chef(String name, String specialization) {
         this.name = name;
         this.specialization = specialization;

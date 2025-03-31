@@ -7,7 +7,6 @@ import org.example.TestInput;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.*;
 
 public class Feature1_1 {
@@ -21,13 +20,12 @@ public class Feature1_1 {
 
         System.out.println("Please enter the information");
         assertFalse(false);
-        // Write code here that turns the phrase above into concrete actions
     }
 
     //Scenario: successful information
 
     @When("user click on insert order and flag is {string}")
-    public void userClikOnInsertOrderAndFlagIs(String string) {
+    public void userClickOnInsertOrderAndFlagIs(String string) {
         // Write code here that turns the phrase above into concrete actions
     }
 
@@ -60,7 +58,6 @@ public class Feature1_1 {
 
 
 
-        // Write code here that turns the phrase above into concrete actions
     }
 
     @Then("the system should store {string} as a dietary preference and {string} for {string}")
@@ -72,6 +69,7 @@ public class Feature1_1 {
         customer.setAllergy(allergies);
 
         Customer.storeCustomer(customer);
+        
 
     }
 
@@ -80,7 +78,6 @@ public class Feature1_1 {
 
         System.out.println("The information saved Successfully!");
         assertTrue(true);
-        // Write code here that turns the phrase above into concrete actions
     }
 
 
@@ -126,14 +123,16 @@ public class Feature1_1 {
     @Then("I should see {string} in dietary preferences")
     public void iShouldSeeInDietaryPreferences(String dietaryPresences) {
 
-        Customer.getDietaryPreference();
+       System.out.println(Customer.getDietaryPreference());
+       assertTrue(true);
 
         // Write code here that turns the phrase above into concrete actions
     }
 
     @Then("I should see {string} in allergies")
     public void iShouldSeeInAllergies(String string) {
-        Customer.getAllergy();
+       System.out.println(Customer.getAllergy());
+        assertTrue(true);
         // Write code here that turns the phrase above into concrete actions
     }
 

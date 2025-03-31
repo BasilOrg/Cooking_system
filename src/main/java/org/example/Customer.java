@@ -20,11 +20,11 @@ public class Customer {
     }
 
     public static void searchCustomerName(String name) {
-        for(int i=0;i< ac.size();i++) {
+        for (Customer customer : ac) {
             Customer typ = new Customer();
-            typ = ac.get(i);
-            if(name.equals(typ.name)){
-                System.out.println(ac.get(i));
+            typ = customer;
+            if (name.equals(typ.name)) {
+                System.out.println(customer);
             }
         }
     }
@@ -60,7 +60,7 @@ public class Customer {
 
       public  void setDietaryPreference(String dietaryPreference){
 
-                              this.dietaryPreference=dietaryPreference;
+                              Customer.dietaryPreference =dietaryPreference;
     }
 
     public static String getDietaryPreference(){
@@ -78,7 +78,7 @@ public class Customer {
 
           public  void  setAllergy(String allergy){
 
-                             this.allergy=allergy;
+                             Customer.allergy =allergy;
           }
 
           public static String getAllergy(){
