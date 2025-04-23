@@ -22,6 +22,7 @@ public class Feature4_2 {
         System.out.println("Connected to supplier databases.");
     }
 
+
     @When("the kitchen manager requests ingredient prices")
     public void theKitchenManagerRequestsIngredientPrices() {
         System.out.println("Fetching real-time ingredient prices...");
