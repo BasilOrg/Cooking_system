@@ -34,3 +34,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=BasilOrg_Cooking_system
+        run: mvn -B jacoco:prepar-agent verify org.sonarsource.scannar.maven:sonar-maven-plugin:sonar jacoco:report -Dsonar.projectKey=BasilOrg_github_action_Cooking_system
