@@ -2,7 +2,8 @@ name: SonarQube
 on:
   push:
     branches:
-      - main
+      - main        # The default branch
+        - master-*    # The other branches to be analyzed
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
