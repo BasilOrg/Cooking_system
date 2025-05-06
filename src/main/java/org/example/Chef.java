@@ -2,8 +2,8 @@ package org.example;
 
 public class Chef {
 
-    private final String name;
-    private final String specialization;
+    private String name;
+    private String specialization;
     private int taskCount = 0;
 
 
@@ -15,9 +15,9 @@ public class Chef {
 
 
 
-    public Chef(String name, String specialization) {
+    public Chef() {
         this.name = name;
-        this.specialization = specialization;
+
     }
 
     public String getName() {
@@ -27,6 +27,15 @@ public class Chef {
     public String getSpecialization() {
         return specialization;
     }
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 
     public void assignTask(String task) {
         System.out.println(name + " is assigned to task: " + task);

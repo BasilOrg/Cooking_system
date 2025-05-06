@@ -4,14 +4,18 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.Chef;
+import org.example.KitchenManager;
+import org.example.Task;
+
 import static org.junit.Assert.*;
 import java.util.HashMap;
 import java.util.Map;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Feature3 {
+
+      KitchenManager km =new KitchenManager();
+      Task task =new Task();
+    Chef chef = new Chef();
 
 
     private String pendingTask;
@@ -27,16 +31,21 @@ public class Feature3 {
 
     @Given("chef {string} specializes in {string}")
     public void chef_specializes_in(String name, String specialization) {
-        Chef chef = new Chef(name, specialization);
-        chefRegistry.put(name, chef);
-        System.out.println(chef);
+
+
+         chef.setName(name);
+         chef.setSpecialization(specialization);
+
+        km.storeChef(chef);
+
         assertTrue(true);
 
     }
 
     @When("a new cooking task {string} needs to be assigned")
     public void a_new_cooking_task_needs_to_be_assigned(String taskName) {
-        pendingTask = taskName;
+         task.setTaskName(taskName);
+
         System.out.println("A new cooking task '" + taskName + "' needs to be assigned.");
         assertTrue(true);
 
@@ -44,6 +53,7 @@ public class Feature3 {
 
     @Then("the system assigns the task to chef {string}")
     public void the_system_assigns_the_task_to_chef(String chefName) {
+
         assignedChef = chefRegistry.get(chefName);
         if (assignedChef != null) {
             assignedChef.assignTask(pendingTask);
@@ -55,6 +65,9 @@ public class Feature3 {
             assertFalse(false);
         }
     }
+
+
+
 
     @Then("chef {string} receives a notification about the task")
     public void chef_receives_a_notification_about_the_task(String chefName) {

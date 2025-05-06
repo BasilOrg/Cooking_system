@@ -3,78 +3,111 @@ package BasilSystem;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import java.util.HashMap;
-import java.util.Map;
+import org.example.Ingredient;
+import org.example.PurchaseOrder;
+import org.example.Supplier;
+
+import java.util.*;
+
+import static org.junit.Assert.*;
 
 
 public class Feature4_2 {
+    private List<Ingredient> ingredients;
+    private Map<Ingredient, Supplier> ingredientToSupplier;
+    private Map<Ingredient, Double> fetchedPrices;
+    private List<PurchaseOrder> purchaseOrders;
+    @Given("the system is integrated with suppliers")
+    public void theSystemIsIntegratedWithSuppliers() {
+// Create suppliers with their respective prices
+        Supplier supplier1 = new Supplier("Supplier1", 10.0);
+        Supplier supplier2 = new Supplier("Supplier2", 12.0);
 
-    private final Map<String, Integer> stockLevels = new HashMap<>();
-    private final Map<String, Double> supplierPrices = new HashMap<>();
-    private final int CRITICAL_THRESHOLD = 2; // Define critical stock level
-    private boolean criticalStockDetected = false;
+        // Create ingredients without supplier information
+        Ingredient tomato = new Ingredient("Tomato", 50, 20);
+        Ingredient potato = new Ingredient("Potato", 30, 10);
 
-    @Given("the system is connected to supplier databases")
-    public void theSystemIsConnectedToSupplierDatabases() {
-        // Mock supplier prices
-        supplierPrices.put("Flour", 2.50);
-        supplierPrices.put("Sugar", 1.75);
-        supplierPrices.put("Milk", 3.00);
-        System.out.println("Connected to supplier databases.");
+        // Initialize ingredient list
+        ingredients = Arrays.asList(tomato, potato);
+
+        // Map ingredients to their suppliers
+        ingredientToSupplier = new HashMap<>();
+        ingredientToSupplier.put(tomato, supplier1);
+        ingredientToSupplier.put(potato, supplier2);
     }
 
-
-    @When("the kitchen manager requests ingredient prices")
-    public void theKitchenManagerRequestsIngredientPrices() {
-        System.out.println("Fetching real-time ingredient prices...");
-        supplierPrices.forEach((ingredient, price) ->
-                System.out.println(ingredient + ": $" + price + " per unit")
-        );
-    }
-
-    @Then("the system should fetch and display real-time prices")
-    public void theSystemShouldFetchAndDisplayRealTimePrices() {
-        System.out.println("Displaying real-time prices...");
-        theKitchenManagerRequestsIngredientPrices();
-    }
-
-    @Given("an ingredient's stock level is critically low")
-    public void anIngredientSStockLevelIsCriticallyLow() {
-        // Mock stock data
-        stockLevels.put("Flour", 1); // Critically low
-        stockLevels.put("Sugar", 5);
-        stockLevels.put("Milk", 8);
-
-        for (Map.Entry<String, Integer> entry : stockLevels.entrySet()) {
-            if (entry.getValue() <= CRITICAL_THRESHOLD) {
-                criticalStockDetected = true;
-                System.out.println(entry.getKey() + " is critically low.");
-                break;
+    @When("the kitchen manager requests current prices")
+    public void theKitchenManagerRequestsCurrentPrices() {
+        fetchedPrices = new HashMap<>();
+        System.out.println("\nFetching current prices:");
+        for (Ingredient ingredient : ingredients) {
+            Supplier supplier = ingredientToSupplier.get(ingredient);
+            if (supplier != null) {
+                double price = supplier.getPriceFor(ingredient);
+                fetchedPrices.put(ingredient, price);
+                System.out.println("- " + ingredient.getName() + ": " + price + " from " + supplier.getName());
             }
         }
     }
 
-    @When("the system detects the low stock level")
-    public void theSystemDetectsTheLowStockLevel() {
-        if (criticalStockDetected) {
-            System.out.println("Critical stock detected.");
-        } else {
-            System.out.println("No critical stock issues.");
+    @Then("the system displays the real-time prices from suppliers")
+    public void theSystemDisplaysTheRealTimePricesFromSuppliers() {
+        assertNotNull(fetchedPrices);
+        assertEquals(ingredients.size(), fetchedPrices.size());
+        System.out.println("\nVerifying fetched prices:");
+        for (Ingredient ingredient : ingredients) {
+            Supplier supplier = ingredientToSupplier.get(ingredient);
+            assertTrue(fetchedPrices.containsKey(ingredient));
+            assertEquals(supplier.getPriceFor(ingredient), fetchedPrices.get(ingredient), 0.01);
+            System.out.println("- " + ingredient.getName() + " price verified: " + fetchedPrices.get(ingredient));
         }
     }
 
-    @Then("the system should generate a purchase order automatically")
-    public void theSystemShouldGenerateAPurchaseOrderAutomatically() {
-        if (criticalStockDetected) {
-            for (Map.Entry<String, Integer> entry : stockLevels.entrySet()) {
-                if (entry.getValue() <= CRITICAL_THRESHOLD) {
-                    System.out.println("Generating purchase order for: " + entry.getKey());
+    @Given("the system is configured to monitor stock levels")
+    public void theSystemIsConfiguredToMonitorStockLevels() {
+        System.out.println("\nSystem configured to monitor stock levels.");
+    }
+
+    @When("stock levels drop below the critical threshold")
+    public void stockLevelsDropBelowTheCriticalThreshold() {
+        System.out.println("\nStock levels dropping below critical threshold:");
+        for (Ingredient ingredient : ingredients) {
+            int newStock = ingredient.getThreshold() - 1;
+            ingredient.setCurrentStock(newStock);
+            System.out.println("- " + ingredient.getName() + ": Stock = " + newStock + " (Threshold = " + ingredient.getThreshold() + ")");
+        }
+    }
+
+    @Then("the system automatically generates purchase orders")
+    public void theSystemAutomaticallyGeneratesPurchaseOrders() {
+        purchaseOrders = new ArrayList<>();
+        System.out.println("\nGenerating purchase orders:");
+        for (Ingredient ingredient : ingredients) {
+            if (ingredient.getCurrentStock() < ingredient.getThreshold()) {
+                Supplier supplier = ingredientToSupplier.get(ingredient);
+                if (supplier != null) {
+                    double price = supplier.getPriceFor(ingredient);
+                    int quantityToOrder = 100 - ingredient.getCurrentStock();
+                    PurchaseOrder order = new PurchaseOrder(ingredient, quantityToOrder, price);
+                    purchaseOrders.add(order);
+                    System.out.println("- Order for " + ingredient.getName() + ": Quantity = " + quantityToOrder + ", Price = " + price);
                 }
             }
         }
+        assertFalse(purchaseOrders.isEmpty());
+        assertEquals(ingredients.size(), purchaseOrders.size());
+        System.out.println("\nVerifying purchase orders:");
+        for (PurchaseOrder order : purchaseOrders) {
+            Ingredient ingredient = order.getIngredient();
+            Supplier supplier = ingredientToSupplier.get(ingredient);
+            int expectedQuantity = 100 - ingredient.getCurrentStock();
+            assertEquals(expectedQuantity, order.getQuantity());
+            assertEquals(supplier.getPriceFor(ingredient), order.getPrice(), 0.01);
+            System.out.println("- " + ingredient.getName() + ": Quantity = " + order.getQuantity() + ", Price = " + order.getPrice() + " verified");        }
+    }
     }
 
 
 
 
-}
+
