@@ -15,7 +15,6 @@
 
 
 
-
 </properties>
 
 
@@ -146,12 +145,11 @@
 
 
 
-    <properties>
-        <sonar.coverage.jacoco.xmlReportPaths>
-            ../app-it/target/site/jacoco-aggregate/jacoco.xml
-        </sonar.coverage.jacoco.xmlReportPaths>
-    </properties>
+    <propertie>
 
+        <sonar.organization>basilorg</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    </propertie>
 
 
 </project>
