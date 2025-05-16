@@ -16,7 +16,6 @@ public class Chef {
 
 
     public Chef() {
-        this.name = name;
 
     }
 
