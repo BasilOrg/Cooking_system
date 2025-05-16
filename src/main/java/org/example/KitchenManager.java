@@ -17,21 +17,23 @@ public class KitchenManager {
         chefRegistry.add(chef);
         System.out.println(chef);
     }
+    /*
     public void addTask(String taskName, String requiredSpecialization) {
         Task task = new Task();
         pendingTasks.add(task);
     }
-
+*/
     public void addIngredient(String name, int initialStock, int threshold) {
         ingredients.put(name, new Ingredient(name, initialStock, threshold));
     }
+    /*
     public void updateStock(String name, int amount) {
         Ingredient ingredient = ingredients.get(name);
         if (ingredient != null) {
             ingredient.setCurrentStock(ingredient.getCurrentStock() + amount);
         }
     }
-
+*/
 
     public List<Ingredient> getLowStockIngredients() {
         List<Ingredient> lowStock = new ArrayList<>();

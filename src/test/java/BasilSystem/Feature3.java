@@ -45,6 +45,7 @@ public class Feature3 {
     @When("a new cooking task {string} needs to be assigned")
     public void a_new_cooking_task_needs_to_be_assigned(String taskName) {
          task.setTaskName(taskName);
+         pendingTask=taskName;
 
         System.out.println("A new cooking task '" + taskName + "' needs to be assigned.");
         assertTrue(true);
@@ -57,6 +58,7 @@ public class Feature3 {
         assignedChef = chefRegistry.get(chefName);
         if (assignedChef != null) {
             assignedChef.assignTask(pendingTask);
+            chef.assignTask(pendingTask);
             System.out.println("Task '" + pendingTask + "' assigned to " + chefName);
             assertTrue(true);
 
