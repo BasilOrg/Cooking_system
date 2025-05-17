@@ -35,6 +35,8 @@ public class Feature3 {
 
          chef.setName(name);
          chef.setSpecialization(specialization);
+        assertEquals(name, chef.getName());
+        assertEquals(specialization, chef.getSpecialization());
 
         km.storeChef(chef);
 
@@ -100,6 +102,8 @@ public class Feature3 {
             assertTrue(true);
 
         }
+
+
     }
 
     @Then("the system assigns the task to chef {string} to balance the workload")

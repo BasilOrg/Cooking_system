@@ -54,18 +54,14 @@ public class Customer {
 
 */
 
+      public  void setDietaryPreference(String dietaryPreference1){
 
-
-
-
-      public  void setDietaryPreference(String dietaryPreference){
-
-                              Customer.dietaryPreference =dietaryPreference;
+                              dietaryPreference =dietaryPreference1;
     }
 
     public static String getDietaryPreference(){
 
-                   return dietaryPreference;
+                   return  dietaryPreference;
     }
 
 

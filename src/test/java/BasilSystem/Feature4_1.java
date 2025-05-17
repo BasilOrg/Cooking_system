@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class Feature4_1 {
@@ -67,8 +68,10 @@ public class Feature4_1 {
         List<Ingredient> lowStock = km.getLowStockIngredients();
         if (!lowStock.isEmpty()) {
             System.out.println("Low stock detected.");
+            assertTrue(true);
         } else {
             System.out.println("All ingredients are above the threshold.");
+            assertFalse(false);
         }
 
     }
