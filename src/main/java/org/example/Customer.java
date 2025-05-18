@@ -72,6 +72,7 @@ public class Customer {
 
 
 
+
           public  void  setAllergy(String allergy){
 
                              Customer.allergy =allergy;
