@@ -20,7 +20,7 @@ public class Chef {
 
     public Chef() {
 
-
+// default implementation ignored
     }
 
     public String getName() {
