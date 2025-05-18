@@ -3,6 +3,9 @@ package org.example;
 public class TestInput {
 
 
+    private TestInput(){
+
+    }
 
     public static boolean nameTest(String name) {
 
