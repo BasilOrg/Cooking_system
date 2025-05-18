@@ -1,10 +1,13 @@
 package org.example;
 
+import java.util.logging.Logger;
+
 public class Chef {
 
     private String name;
     private String specialization;
     private int taskCount = 0;
+    Logger logger = Logger.getLogger(getClass().getName());
 
 
     @Override
@@ -38,7 +41,7 @@ public class Chef {
 
 
     public void assignTask(String task) {
-        System.out.println(name + " is assigned to task: " + task);
+        logger.info(name + " is assigned to task: " + task);  // Compliant, output via logger
         taskCount++;
     }
 
