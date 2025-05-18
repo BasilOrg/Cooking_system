@@ -4,6 +4,7 @@ public class TestInput {
 
 
     private TestInput(){
+// default implementation ignored
 
     }
 
