@@ -1,0 +1,13 @@
+@StarUML
+class User {
+  - id: int
+  - name: String
+  + getName(): String
+}
+class Order {
+  - orderId: int
+  - total: double
+  + calculateTotal(): double
+}
+User "1" -- "*" Order : places >
+@pendulum

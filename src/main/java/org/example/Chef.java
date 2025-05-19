@@ -6,7 +6,7 @@ public class Chef {
 
     private String name;
     private String specialization;
-    private int taskCount = 0;
+    private  int taskCount = 0;
     Logger logger = Logger.getLogger(getClass().getName());
 
 
@@ -48,11 +48,11 @@ public class Chef {
     public void setTaskCount(int count) {
         this.taskCount = count;
     }
-/*
+
     public int getTaskCount() {
         return taskCount;
     }
 
 
- */
+
 }

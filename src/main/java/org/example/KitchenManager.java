@@ -1,16 +1,14 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class KitchenManager {
 
     private final  ArrayList<Chef> chefRegistry= new ArrayList<>();
     private final ArrayList<Task> pendingTasks = new ArrayList<>();
     private Map<String, Ingredient> ingredients = new HashMap<>();
-
+    private final List<Supplier> suppliers = new ArrayList<>();
+    private final List<PurchaseOrder> purchaseOrders = new ArrayList<>();
 
     public void storeChef(Chef chef) {
 
@@ -53,7 +51,36 @@ public class KitchenManager {
 }
 
 
+    public Ingredient getIngredient(String string) {
+        return ingredients.get(string);
+    }
 
-}
+    public void registerSupplier(Supplier supplier) {
+        suppliers.add(supplier);
+    }
+
+
+    public Supplier findSupplierFor(String ingredientName) {
+        if (suppliers.isEmpty()) return null;
+        return suppliers.get(0);
+    }
+
+    public void storePurchaseOrder(PurchaseOrder po) {
+        purchaseOrders.add(po);
+    }
+    public List<PurchaseOrder> getPurchaseOrders() {
+        List<PurchaseOrder> copy = new ArrayList<>();
+        for (PurchaseOrder po : purchaseOrders) {
+            copy.add(po);
+        }
+        return copy;    }
+    public List<Supplier> getSuppliers() {
+        List<Supplier> copy = new ArrayList<>();
+        for (Supplier supplier : suppliers) {
+            copy.add(supplier);
+        }
+        return copy;
+    }    }
+
 
 
