@@ -10,6 +10,7 @@ public class KitchenManager {
     private final List<Supplier> suppliers = new ArrayList<>();
     private final List<PurchaseOrder> purchaseOrders = new ArrayList<>();
 
+
     public void storeChef(Chef chef) {
 
         chefRegistry.add(chef);
