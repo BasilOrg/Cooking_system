@@ -1,3 +1,4 @@
+
 package org.example;
 
 
@@ -34,8 +35,8 @@ public class Main {
         }
 
         // Setup chefs
-        Chef alice = new Chef(); alice.setTaskCount(0); alice.setName("Alice"); alice.setSpecialization("Pastry");
-        Chef bob   = new Chef(); bob.setTaskCount(0);   bob.setName("Bob");   bob.setSpecialization("Grill");
+        Chef alice = new Chef(); alice.setTaskCount(0); alice.setName("Basil"); alice.setSpecialization("Arabic Food");
+        Chef bob   = new Chef(); bob.setTaskCount(0);   bob.setName("Majid");   bob.setSpecialization("Italian Food");
         kitchen.storeChef(alice); kitchen.storeChef(bob);
 
         List<Chef> chefs = List.of(alice, bob);
@@ -51,19 +52,15 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         // Customer entry
-        System.out.println("Enter your info:");
+        System.out.println("Enter your information:");
         System.out.print("Name: "); String name = scanner.nextLine();
-        System.out.print("Dietary pref: "); String diet = scanner.nextLine();
+        System.out.print("Dietary Presences: "); String diet = scanner.nextLine();
         System.out.print("Allergy: "); String allergy = scanner.nextLine();
         Customer newC = new Customer(); newC.setName(name); newC.setDietaryPreference(diet); newC.setAllergy(allergy);
         Customer.storeCustomer(newC);
         System.out.println("Stored customer: " + newC);
 
-        // Search
-        System.out.print("Search customer by name: ");
-        String search = scanner.nextLine();
-        System.out.println("Searching for: " + search);
-        Customer.searchCustomerName(search);
+
 
         // Order placement
         System.out.print("Place order? (yes/no): ");
@@ -81,6 +78,9 @@ public class Main {
                 System.out.println(ch.getName()+" ("+ch.getSpecialization()+") has " + ch.getTaskCount()+" orders");
         }
 
+           else System.exit(0);
+
+
         // Manager actions
         System.out.print("\nKitchen Manager? Check stocks or suppliers? (stock/supplier/none):");
         String managerAction  = scanner.nextLine();
@@ -92,9 +92,13 @@ public class Main {
             if(sp!=null) System.out.println("Supplier: " + sp.getName() + " @ $" + sp.getPriceFor(new Ingredient(ing,0,0)));
             else System.out.println("No supplier for " + ing);
         }
+            else{
+                System.exit(0);
+            System.out.println("Done.");
 
-        System.out.println("Done.");
-    }
+            }
+        }
+
 }
 
 
