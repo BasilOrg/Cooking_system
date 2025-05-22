@@ -35,15 +35,15 @@ public class Main {
         }
 
         // Setup chefs
-        Chef alice = new Chef(); alice.setTaskCount(0); alice.setName("Basil"); alice.setSpecialization("Arabic Food");
-        Chef bob   = new Chef(); bob.setTaskCount(0);   bob.setName("Majid");   bob.setSpecialization("Italian Food");
-        kitchen.storeChef(alice); kitchen.storeChef(bob);
+        Chef Basil = new Chef(); Basil.setTaskCount(0); Basil.setName("Basil"); Basil.setSpecialization("Arabic Food");
+        Chef Majid   = new Chef(); Majid.setTaskCount(0);   Majid.setName("Majid");   Majid.setSpecialization("Italian Food");
+        kitchen.storeChef(Basil); kitchen.storeChef(Majid);
 
-        List<Chef> chefs = List.of(alice, bob);
+        List<Chef> chefs = List.of(Basil, Majid);
 
         // Initial tasks
-        alice.assignTask("Bake croissants");
-        bob.assignTask("Grill steaks");
+        Basil.assignTask("Bake croissants");
+        Majid.assignTask("Grill steaks");
 
         // Predefined customers
         Customer c1 = new Customer(); c1.setName("Charlie"); c1.setDietaryPreference("Vegetarian"); c1.setAllergy("Nuts"); Customer.storeCustomer(c1);
@@ -63,7 +63,7 @@ public class Main {
 
 
         // Order placement
-        System.out.print("Place order? (yes/no): ");
+        System.out.print("Do you Wont order? (yes/no): ");
         if (scanner.nextLine().equalsIgnoreCase("yes")) {
             System.out.print("Dish: "); String dish = scanner.nextLine();
             System.out.print("Chef spec: "); String spec = scanner.nextLine();
